@@ -1,0 +1,311 @@
+
+<!DOCTYPE html >
+<html lang="en" onclick="Fscreen()" >
+<head>
+    <!-- ||||||||   author : fnedyoussef@gmail.com   |||||||||||||| -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>hitball</title>
+      <!-- we use it as a folder instead of this folder where this file sitiation (ep_15)  -->
+      <!-- <base href="https://fned.000webhostapp.com/" />  -->
+
+    <!-- icon -->
+    <link rel="icon" href="infinite.png" /> <!-- required  -->
+    <link rel="shortcut" href="infinite.png" /> <!-- for google when someone wants to search -->
+    <link rel="apple-touch-icon" href="infinite.png" /> <!-- for apple -->
+    <!---->
+
+    <!-- meta / google -->
+    <!-- <base href="https://fned.000webhostapp.com/" />  -->  <!-- we use it as a folder instead of this folder where this file sitiation (ep_15)  -->
+    <meta charset="UTF-8"> <!-- da3m ba9iyet a lou8at wl roumouz-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" > <!-- for all the phones -->
+    <meta name="description" content="play hitball and rejoice"/>
+    <meta name="keywords" content="play hitball GXturing gxturing videogames gmae games"/>
+    <meta name="author" content="youssef fned"/>
+    <!-- see input_file.html or ep43 -->
+    <!---->
+
+    <!-- website in facebook when you wanna share it in fcb -->
+    <meta property="og:title" content="hitball" />
+    <meta property="og:description" content="play hitball and rejoice" />
+    <meta property="og:image" content="nebula.jpg" />
+    <meta property="og:image:width" content="1200" />  <!-- you should make the width=height*2 -->
+    <meta property="og:image:height" content="630"/> 
+    <meta property="og:type" content="website" /> <!-- content="article" -->
+    <!--   <meta property="og:url" content="" />  --> <!--it's not required or necessery -->
+    <!-- bloger: ep45 -->
+    <!---->
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image"> <!-- required -->
+    <meta name="twitter:title" content="hitball">
+    <meta name="twitter:description" content="play hitball and rejoice">
+    <meta name="twitter:image" content="nebula.jpg">
+
+    <meta name="twitter:site" content="@"> <!-- name of site account on twitter -->
+    <meta name="twitter:creator" content="@youssefFned">  <!-- name of creator account on twitter -->
+
+
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
+    
+    <style>
+        *{
+            font-family: "Germania One";
+            /* margin:0;
+            padding:0; */
+        }
+        body{
+            /*background-image: linear-gradient(to right, rgb(23, 14, 150) , rgb(140, 12, 179));*/
+            background-color: #34060f;
+        }
+        .galaxy_fold{
+            padding:0;
+            margin:0;
+            display:none;
+            color:#816a6a;
+        }
+        #GX{
+            position:fixed;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            top:0px;
+            left:50%;
+            transform:translateX(-50%);
+            z-index:25;
+            width:350px;
+            height:45px;
+            background-color: black;
+            -webkit-clip-path: polygon(0% 0%, 100% 0%, calc(100% - 50px) 100%, 50px 100%);
+            display: none;
+        }
+        #GXX{
+            color:#816a6a;
+        }
+        #pause{
+            /* width: 30px; */
+            /* height : 30px; */
+            cursor: pointer;
+            z-index:102;
+            display: none;
+        }
+        #sound{
+            /* width: 30px; */
+            /* height : 30px; */
+            cursor: pointer;
+            z-index:102;
+        }
+        #sound1{
+            position: absolute;
+            z-index:101;
+            display:none;
+        }
+        #gameover{
+            position: absolute;
+            background: rgba(0,0,0,0.5);
+            z-index:100;
+            display: none;
+        }
+        #youwon{
+            width: 200px;
+            position: absolute;
+            bottom:50%;
+            left:50%;
+            transform:translateX(-50%); 
+            display: none;
+        }
+        #youlose{
+            /*width:400px;*/
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%); 
+            display: none;
+        }
+        #restart{
+            width:200px;
+            position: absolute;
+            bottom:10%;
+            left:50%;
+            transform:translate(-50%,0); 
+            cursor: pointer;
+            display:none;
+
+        }
+        #enter{
+            /* width:100px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);  */
+            cursor: pointer;
+            display:none;
+            z-index:300;
+        }
+        #rotate{
+            /* width:100px;
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform:translate(-50%,-50%);  */
+            cursor: pointer;
+            display:none;
+            z-index:300;
+        }
+        #breakout{
+            padding:0;
+            margin:0;
+        }
+        /*spin*/
+        section{
+            display: flex;
+            width: 230px;/*270px*/
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            z-index:25;
+        }
+        section .container2{
+            display:flex;
+        }
+        section .container2 .circle{
+            position:relative;
+            width:130px;/*150*/
+            height:130px;
+            margin:0 -7.5px;
+        }
+        section .container2 .circle span{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+            /*background:blue;*---*/
+            transform:rotate(calc(18deg * var(--i)));
+            /*360/20=18deg*/
+        }
+        section .container2 .circle span::before{
+            content: '';
+            position:absolute;
+            top:calc(50% - 7.5px);
+            right:0;
+            width:15px;
+            height:15px;
+            border-radius:50%;
+            background:#cc0000; 
+            box-shadow:0 0 10px #cc0000,
+            0 0 20px #cc0000,
+            0 0 40px #cc0000,
+            0 0 60px #cc0000,
+            0 0 80px #cc0000,
+            0 0 100px #cc0000;
+            transform:scale(0.1);
+            animation: animate 4s linear infinite;
+            animation-delay:calc(0.1s * var(--i));
+        }
+        @keyframes animate{
+            0%{
+                transform:scale(1);
+            }
+            50%,100%{
+                transform:scale(0.1);
+            }
+        }
+        section .container2 .circle:nth-child(2){
+            transform:rotate(-180deg);
+        }
+        section .container2 .circle:nth-child(2) span::before{
+            animation-delay:calc(-0.1s * var(--i));
+        }
+        #hh2{
+            position:fixed;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            top:calc(50% + 70px);
+            left:50%;
+            transform:translateX(-50%);
+            z-index:25;
+        }
+        #hhh2{
+            color:#816a6a;
+        }
+    </style>
+</head>
+<body>
+<!--+++++++++++++-->
+<div id="hh2" ><h1 id="hhh2" >GXturing</h1></div>
+<section id="loader" >
+<div class="container2" >
+<div class="circle" id="circle1" >
+<span style="--i:0;" ></span>
+<span style="--i:1;" ></span>
+<span style="--i:2;" ></span>
+<span style="--i:3;" ></span>
+<span style="--i:4;" ></span>
+<span style="--i:5;" ></span>
+<span style="--i:6;" ></span>
+<span style="--i:7;" ></span>
+<span style="--i:8;" ></span>
+<span style="--i:9;" ></span>
+<span style="--i:10;" ></span>
+<span style="--i:11;" ></span>
+<span style="--i:12;" ></span>
+<span style="--i:13;" ></span>
+<span style="--i:14;" ></span>
+<span style="--i:15;" ></span>
+<span style="--i:16;" ></span>
+<span style="--i:17;" ></span>
+<span style="--i:18;" ></span>
+<span style="--i:19;" ></span>
+<span style="--i:20;" ></span>
+</div>
+<div class="circle" id="circle2" >
+<span style="--i:0;" ></span>
+<span style="--i:1;" ></span>
+<span style="--i:2;" ></span>
+<span style="--i:3;" ></span>
+<span style="--i:4;" ></span>
+<span style="--i:5;" ></span>
+<span style="--i:6;" ></span>
+<span style="--i:7;" ></span>
+<span style="--i:8;" ></span>
+<span style="--i:9;" ></span>
+<span style="--i:10;" ></span>
+<span style="--i:11;" ></span>
+<span style="--i:12;" ></span>
+<span style="--i:13;" ></span>
+<span style="--i:14;" ></span>
+<span style="--i:15;" ></span>
+<span style="--i:16;" ></span>
+<span style="--i:17;" ></span>
+<span style="--i:18;" ></span>
+<span style="--i:19;" ></span>
+<span style="--i:20;" ></span>
+</div>
+</div>
+</section>
+<div style="width:100%; height:100%; position:absolute; left:0px; top:0px; background-color: #34060f;  z-index:299;" id="white_board" ></div>
+<!--+++++++++++++-->
+    <h2 id="fold" class="galaxy_fold" >fold your phone</h2>
+    <h2 id="unfold" class="galaxy_fold" >unfold your phone</h2>
+    <div id="GX" ><h1 id="GXX" >hitball</h1></div>
+    <img src="rotate.png" alt="" id="rotate">
+    <!--<img src="enter.png"  alt="" id="enter" >-->
+
+    <div id="sound1">
+        <img src="playnow.png" alt="" id="sound">
+        <img src="pause4.png" alt="" id="pause">
+    </div>
+    <div id="gameover">
+        <img src="youwonn.png" alt="" id="youwon">
+        <img src="gameOverrr.png" alt="" id="youlose">
+        <img src="start.png" id="restart">
+    </div>
+   
+    <canvas id="breakout" ></canvas>  
+
+    <script src="hitball_2.js"></script>
+    <script src="hitball_13.js"></script>
+</body>
+</html>

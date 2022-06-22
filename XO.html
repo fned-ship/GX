@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" onclick="Fscreen()" >
+<head>
+  <!-- ||||||||   author : fnedyoussef222@gmail.com   |||||||||||||| -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>XO</title>
+    <!-- we use it as a folder instead of this folder where this file sitiation (ep_15)  -->
+    <!-- <base href="https://fned.000webhostapp.com/" />  -->
+
+  <!-- icon -->
+  <link rel="icon" href="infinite.png" /> <!-- required  -->
+  <link rel="shortcut" href="infinite.png" /> <!-- for google when someone wants to search -->
+  <link rel="apple-touch-icon" href="infinite.png" /> <!-- for apple -->
+  <!---->
+
+  <!-- meta / google -->
+  <!-- <base href="https://fned.000webhostapp.com/" />  -->  <!-- we use it as a folder instead of this folder where this file sitiation (ep_15)  -->
+  <meta charset="UTF-8"> <!-- da3m ba9iyet a lou8at wl roumouz-->
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" > <!-- for all the phones -->
+  <meta name="description" content="play XO with friend or computer and rejoice"/>
+  <meta name="keywords" content="play hitball Xturing xturing GXturing gxturing videogames gmae games xo XO "/>
+  <meta name="author" content="youssef fned"/>
+  <!-- see input_file.html or ep43 -->
+  <!---->
+
+  <!-- website in facebook when you wanna share it in fcb -->
+  <meta property="og:title" content="XO" />
+  <meta property="og:description" content="play XO with friend or computer and rejoice" />
+  <meta property="og:image" content="galaxy1.jpg" />
+  <meta property="og:image:width" content="1200" />  <!-- you should make the width=height*2 -->
+  <meta property="og:image:height" content="630"/> 
+  <meta property="og:type" content="website" /> <!-- content="article" -->
+  <!--   <meta property="og:url" content="" />  --> <!--it's not required or necessery -->
+  <!-- bloger: ep45 -->
+  <!---->
+
+  <!-- twitter -->
+  <meta name="twitter:card" content="summary_large_image"> <!-- required -->
+  <meta name="twitter:title" content="XO">
+  <meta name="twitter:description" content="play XO with friend or computer and rejoice">
+  <meta name="twitter:image" content="galaxy1.jpg">
+
+  <meta name="twitter:site" content="@"> <!-- name of site account on twitter -->
+  <meta name="twitter:creator" content="@youssefFned">  <!-- name of creator account on twitter -->
+
+
+  <link rel="stylesheet" href="XO.css">
+  <script src="XO.js" defer></script>
+  <title>XO</title>
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Germania+One">
+</head>
+<body>
+  <!--+++++++++++++-->
+<div id="hh2" ><h1 id="hhh2" >GXturing</h1></div>
+<section id="loader" >
+<div class="container2" >
+<div class="circle" id="circle1" >
+<span style="--i:0;" ></span>
+<span style="--i:1;" ></span>
+<span style="--i:2;" ></span>
+<span style="--i:3;" ></span>
+<span style="--i:4;" ></span>
+<span style="--i:5;" ></span>
+<span style="--i:6;" ></span>
+<span style="--i:7;" ></span>
+<span style="--i:8;" ></span>
+<span style="--i:9;" ></span>
+<span style="--i:10;" ></span>
+<span style="--i:11;" ></span>
+<span style="--i:12;" ></span>
+<span style="--i:13;" ></span>
+<span style="--i:14;" ></span>
+<span style="--i:15;" ></span>
+<span style="--i:16;" ></span>
+<span style="--i:17;" ></span>
+<span style="--i:18;" ></span>
+<span style="--i:19;" ></span>
+<span style="--i:20;" ></span>
+</div>
+<div class="circle" id="circle2" >
+<span style="--i:0;" ></span>
+<span style="--i:1;" ></span>
+<span style="--i:2;" ></span>
+<span style="--i:3;" ></span>
+<span style="--i:4;" ></span>
+<span style="--i:5;" ></span>
+<span style="--i:6;" ></span>
+<span style="--i:7;" ></span>
+<span style="--i:8;" ></span>
+<span style="--i:9;" ></span>
+<span style="--i:10;" ></span>
+<span style="--i:11;" ></span>
+<span style="--i:12;" ></span>
+<span style="--i:13;" ></span>
+<span style="--i:14;" ></span>
+<span style="--i:15;" ></span>
+<span style="--i:16;" ></span>
+<span style="--i:17;" ></span>
+<span style="--i:18;" ></span>
+<span style="--i:19;" ></span>
+<span style="--i:20;" ></span>
+</div>
+</div>
+</section>
+<!--+++++++++++++-->
+  <div class="boardwin" id="boardWin">
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+    <div class="barw" data-cell-w></div>
+  </div>
+
+  <div class="board" id="board">
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+    <div class="cell" data-cell></div>
+  </div>
+  <div class="winning-message" id="winningMessage">
+    <div data-winning-message-text></div>
+    <button id="restartButton">continue</button>
+    <button id="restartButton1">restart</button>
+
+  </div>
+
+  <img src="rotate.png" alt="" id="rotate">
+  <div id="GX" ><h1 id="GXX" >XO</h1></div>
+    <div id="bar" >
+      <h1 class="barr" Xscore >X : 0</h1>
+      <h1 class="barr" Oscore >O : 0</h1>
+    </div>
+  <div style="width:100%; height:100%; position:absolute; left:0px; top:0px; background-color: #34060f; display:none;  z-index:299;" id="white_board" ></div>
+  <script>
+    //   ||||||||||||||  author : fnedyoussef222@gmail.com  |||||||||||||||||||||
+    
+    var loaded=false;
+    function myGreeting() {
+        document.querySelector("#loader").style.display = "none";
+        document.querySelector("#hh2").style.display = "none";
+        document.querySelector("body").style.visibility = "visible";
+        document.getElementById("white_board").style.display="none"
+        loaded=true;
+    }
+    document.onreadystatechange = function() {
+        if (document.readyState !== "complete") {
+             document.querySelector("body").style.visibility = "hidden";
+             document.querySelector("#hh2").style.display = "flex";
+             document.querySelector("#hh2").style.visibility = "visible";
+             document.querySelector("#loader").style.visibility = "visible";
+             document.getElementById("white_board").style.display="block"
+        } else {
+            const myTimeout = setTimeout(myGreeting, 3000);
+        }
+    };
+    
+      </script>
+</body>
+</html>
