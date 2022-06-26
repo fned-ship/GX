@@ -217,6 +217,7 @@
     var orientLL=false;
 if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
     //img.style.display="none"
+    alert("mobile user");
     document.body.style.flexDirection="column"
     class Orientation{
         constructor(){
@@ -232,14 +233,19 @@ if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phon
             if(screen.orientation.type =="portrait-primary" || screen.orientation.type =="portrait-secondary"  ){
                 orientLL=false;
                 if( window.screen.width<600 ){
-                    box[0].style.width=`${window.screen.width*0.8}px`
-                    box[0].style.height=`${window.screen.width*0.8}px`
-                    box[1].style.width=`${window.screen.width*0.8}px`
-                    box[1].style.height=`${window.screen.width*0.8}px`
+                    for(var i=0;i<box.length;i++){
+                        box[i].style.width=`${window.screen.width*0.9}px`
+                        box[i].style.height=`${window.screen.width*0.9}px`
+                    }
                     GX.style.width="80%"
+                    alert("data : ");
+                    alert("gx's width is : "+GX.clientWidth+" px");
+                    alert("box's width is : "+box[0].clientWidth+" px");
+                    alert("box's width is : "+window.screen.width*0.9+" px");
                     a.style.fontSize="0.75em"
                     a1.style.fontSize="0.75em"
                     a2.style.fontSize="0.75em"
+              
                     a.style.marginTop="10px"
                     a1.style.marginTop="10px"
                     a2.style.marginTop="5px"
