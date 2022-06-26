@@ -18,7 +18,7 @@
     <meta charset="UTF-8"> <!-- da3m ba9iyet a lou8at wl roumouz-->
     <meta name="viewport" content="width=device-width,initial-scale=1.0" > <!-- for all the phones -->
     <meta name="description" content="play games and rejoice"/>
-    <meta name="keywords" content="play hitball Xturing xturing GXturing gxturing videogames gmae games"/>
+    <meta name="keywords" content="play hitball Xturing xturing GXturing gxturing videogames gmae games XO xo flappy bird "/>
     <meta name="author" content="youssef fned"/>
     <!-- see input_file.html or ep43 -->
     <!---->
@@ -57,9 +57,12 @@
             display:flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             min-height: 100vh;
+            /*min-width: 100vw;*/
             background:#34060f;/* #162052 */
             /*flex-direction: column;*/
+            visibility: hidden;
         }
         .box{
             position: relative;
@@ -139,12 +142,19 @@
         }
         #a{
             margin-top:30px;
+            font-weight: 500;
         }
         #a1{
             margin-top: 30px;
+            font-weight: 200;
         }
         #a2{
             margin-top:10px;
+            font-weight: 200;
+        }
+        #a3{
+            margin-top:30px;
+            font-weight: 500;
         }
         .content a{
             position: relative;
@@ -154,7 +164,7 @@
             background:black;
             border-radius: 25px;
 
-            font-weight: 500;
+            /*font-weight: 500;*/
             /*font-size: 1.5em;*/
 
             text-transform: uppercase;
@@ -184,9 +194,140 @@
         #GXX{
             color:#816a6a;
         }
+
+
+        /*   spin    */ 
+
+    section{
+    display: flex;
+    width: 230px;/*270px*/
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index:25;
+  }
+  section .container2{
+    display:flex;
+  }
+  section .container2 .circle{
+    position:relative;
+    width:130px;/*150*/
+    height:130px;
+    margin:0 -7.5px;
+  }
+  section .container2 .circle span{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    /*background:blue;*---*/
+    transform:rotate(calc(18deg * var(--i)));
+    /*360/20=18deg*/
+  }
+  section .container2 .circle span::before{
+    content: '';
+    position:absolute;
+    top:calc(50% - 7.5px);
+    right:0;
+    width:15px;
+    height:15px;
+    border-radius:50%;
+    background:#cc0000; 
+    box-shadow:0 0 10px #cc0000,
+    0 0 20px #cc0000,
+    0 0 40px #cc0000,
+    0 0 60px #cc0000,
+    0 0 80px #cc0000,
+    0 0 100px #cc0000;
+    transform:scale(0.1);
+    animation: animate1 4s linear infinite;
+    animation-delay:calc(0.1s * var(--i));
+  }
+  @keyframes animate1{
+    0%{
+        transform:scale(1);
+    }
+    50%,100%{
+        transform:scale(0.1);
+    }
+  }
+  section .container2 .circle:nth-child(2){
+    transform:rotate(-180deg);
+  }
+  section .container2 .circle:nth-child(2) span::before{
+    animation-delay:calc(-0.1s * var(--i));
+  }
+  #hh2{
+    position:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    top:calc(50% + 70px);
+    left:50%;
+    transform:translateX(-50%);
+    z-index:25;
+  }
+  #hhh2{
+    color:#816a6a;
+  }
     </style>
 </head>
 <body>
+    <!--+++++++++++++-->
+<div id="hh2" ><h1 id="hhh2" >GXturing</h1></div>
+<section id="loader" >
+<div class="container2" >
+<div class="circle" id="circle1" >
+<span style="--i:0;" ></span>
+<span style="--i:1;" ></span>
+<span style="--i:2;" ></span>
+<span style="--i:3;" ></span>
+<span style="--i:4;" ></span>
+<span style="--i:5;" ></span>
+<span style="--i:6;" ></span>
+<span style="--i:7;" ></span>
+<span style="--i:8;" ></span>
+<span style="--i:9;" ></span>
+<span style="--i:10;" ></span>
+<span style="--i:11;" ></span>
+<span style="--i:12;" ></span>
+<span style="--i:13;" ></span>
+<span style="--i:14;" ></span>
+<span style="--i:15;" ></span>
+<span style="--i:16;" ></span>
+<span style="--i:17;" ></span>
+<span style="--i:18;" ></span>
+<span style="--i:19;" ></span>
+<span style="--i:20;" ></span>
+</div>
+<div class="circle" id="circle2" >
+<span style="--i:0;" ></span>
+<span style="--i:1;" ></span>
+<span style="--i:2;" ></span>
+<span style="--i:3;" ></span>
+<span style="--i:4;" ></span>
+<span style="--i:5;" ></span>
+<span style="--i:6;" ></span>
+<span style="--i:7;" ></span>
+<span style="--i:8;" ></span>
+<span style="--i:9;" ></span>
+<span style="--i:10;" ></span>
+<span style="--i:11;" ></span>
+<span style="--i:12;" ></span>
+<span style="--i:13;" ></span>
+<span style="--i:14;" ></span>
+<span style="--i:15;" ></span>
+<span style="--i:16;" ></span>
+<span style="--i:17;" ></span>
+<span style="--i:18;" ></span>
+<span style="--i:19;" ></span>
+<span style="--i:20;" ></span>
+</div>
+</div>
+</section>
+<!--+++++++++++++-->
 <div id="GX" ><h1 id="GXX" >GXturing</h1></div>
 <div class="box" >
     <div class="content" >
@@ -200,11 +341,19 @@
     <div class="content" >
         <img src="galaxy1.jpg" >
         <h1>XO<br><span>Xturing</span></h1>
-        <a href="#" id="a1" >play with computer</a>
-        <a href="#" id="a2" >play with friend</a>
+        <a href="XOC.html" id="a1" >play with computer</a>
+        <a href="XO.html" id="a2" >play with friend</a>
     </div>
 </div>
 
+<div class="box" >
+    <div class="content" >
+        <img src="nebula1.jpg" >
+        <h1>flappy bird<br><span>Xturing</span></h1>
+        <a href="#" id="a3" >play now!</a>
+    </div>
+</div>
+<div style="width:100%; height:100%; position:absolute; left:0px; top:0px; background-color: #34060f; display:none;  z-index:299;" id="white_board" ></div>
 <script>
     //   ||||||||||||||  author : fnedyoussef222@gmail.com  |||||||||||||||||||||
     var  windowWidth=window.screen.width ;//* window.devicePixelRatio ;
@@ -214,11 +363,13 @@
     var a=document.getElementById("a");
     var a1=document.getElementById("a1");
     var a2=document.getElementById("a2");
+    var a3=document.getElementById("a3");
     var orientLL=false;
 if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
+    alert("mobile user !")
     //img.style.display="none"
-    alert("mobile user");
     document.body.style.flexDirection="column"
+    box[0].style.marginTop="80px"
     class Orientation{
         constructor(){
             addEventListener("load",()=>{
@@ -245,44 +396,48 @@ if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phon
                     a.style.fontSize="0.75em"
                     a1.style.fontSize="0.75em"
                     a2.style.fontSize="0.75em"
-              
+                    a3.style.fontSize="0.75em"
                     a.style.marginTop="10px"
                     a1.style.marginTop="10px"
                     a2.style.marginTop="5px"
+                    a3.style.marginTop="10px"
                 }else{
-                    box[0].style.width="400px"
-                    box[0].style.height="400px"
-                    box[1].style.width="400px"
-                    box[1].style.height="400px"
+                    for(var i=0;i<box.length;i++){
+                        box[i].style.width="400px"
+                        box[i].style.height="400px"
+                    }
                     GX.style.width="350px"
                     a.style.fontSize="1.5em"
                     a1.style.fontSize="1.5em"
                     a2.style.fontSize="1.5em"
+                    a3.style.fontSize="1.5em"
                 } 
             }else if(screen.orientation.type =="landscape-primary" ||  screen.orientation.type =="landscape-landscape-secondary" ){
                 orientLL=true;
                 if( window.screen.height<600 ){
-                    box[0].style.width=`${window.screen.height*0.8}px`
-                    box[0].style.height=`${window.screen.height*0.8}px`
-                    box[1].style.width=`${window.screen.height*0.8}px`
-                    box[1].style.height=`${window.screen.height*0.8}px`
+                    for(var i=0;i<box.length;i++){
+                        box[i].style.width=`${window.screen.height*0.8}px`
+                        box[i].style.height=`${window.screen.height*0.8}px`
+                    }
                     GX.style.width="350px"
                     a.style.fontSize="0.75em"
                     a1.style.fontSize="0.75em"
                     a2.style.fontSize="0.75em"
+                    a3.style.fontSize="0.75em"
                     a.style.marginTop="10px"
                     a1.style.marginTop="10px"
                     a2.style.marginTop="5px"
-                    box[0].style.marginTop="50px"
+                    a3.style.marginTop="10px"
                 }else{
-                    box[0].style.width="400px"
-                    box[0].style.height="400px"
-                    box[1].style.width="400px"
-                    box[1].style.height="400px"
+                    for(var i=0;i<box.length;i++){
+                        box[i].style.width="400px"
+                        box[i].style.height="400px"
+                    }
                     GX.style.width="350px"
                     a.style.fontSize="1.5em"
                     a1.style.fontSize="1.5em"
                     a2.style.fontSize="1.5em"
+                    a3.style.fontSize="1.5em"
                     
                 } 
             }
@@ -290,16 +445,43 @@ if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phon
     }
     onload = new Orientation();
 }else{ //computer
-    box[0].style.width=`${windowWidth/4}px`
-    box[0].style.height=`${windowWidth/4}px`
-    box[1].style.width=`${windowWidth/4}px`
-    box[1].style.height=`${windowWidth/4}px`
+    for(var i=0;i<box.length;i++){
+        box[i].style.width=`${windowWidth/4}px`
+        box[i].style.height=`${windowWidth/4}px`
+        box[i].style.margin="70px 20px 20px 20px"
+    }
     GX.style.width="350px"
     a.style.fontSize="1.25em"
-    a1.style.fontSize="1.25em"
-    a2.style.fontSize="1.25em"
+    a1.style.fontSize=`${windowWidth/4*0.05}px`
+    a2.style.fontSize=`${windowWidth/4*0.05}px`
+    a3.style.fontSize="1.25em"
 }
 
+</script>
+<script>
+        //   ||||||||||||||  author : fnedyoussef222@gmail.com  |||||||||||||||||||||
+
+    //https://www.cjoint.com/doc/19_05/IEdtsrkOjUA_interstellar-main-theme-hans-zimmer.mp3
+    //var loaded=false;
+    function myGreeting() {
+        document.querySelector("#loader").style.display = "none";
+        document.querySelector("#hh2").style.display = "none";
+        document.querySelector("body").style.visibility = "visible";
+        //document.getElementById("white_board").style.display="none"
+        //alert("you can defeat the computer just try,you're a human!");
+        //loaded=true;
+    }
+    document.onreadystatechange = function() {
+        if (document.readyState !== "complete") {
+             document.querySelector("body").style.visibility = "hidden";
+             document.querySelector("#hh2").style.display = "flex";
+             document.querySelector("#hh2").style.visibility = "visible";
+             document.querySelector("#loader").style.visibility = "visible";
+             //document.getElementById("white_board").style.display="block"
+        } else {
+            const myTimeout = setTimeout(myGreeting, 3000);
+        }
+    };
 </script>
 </body>
 </html>
