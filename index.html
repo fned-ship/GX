@@ -370,6 +370,12 @@
     var user="other"
 
 ///////////////////////////------------- orientation -------------////////////////////////////////
+    
+if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
+    user="phone";
+}else{ //computer
+    user="computer";
+}
 
 var cntr=0;
 var vrb=true;
