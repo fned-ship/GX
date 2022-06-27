@@ -355,6 +355,8 @@
 </div>
 <div style="width:100%; height:100%; position:absolute; left:0px; top:0px; background-color: #34060f; display:none;  z-index:299;" id="white_board" ></div>
 <script>
+    alert("js available !");
+    alert("availHeight :"+window.screen.availHeight+"|X|"+"height :"+window.screen.height); 
     //   ||||||||||||||  author : fnedyoussef222@gmail.com  |||||||||||||||||||||
     var  windowWidth=window.screen.width ;//* window.devicePixelRatio ;
     var  windowHeight=window.screen.height ;//* window.devicePixelRatio ;
@@ -365,34 +367,36 @@
     var a2=document.getElementById("a2");
     var a3=document.getElementById("a3");
     var orientLL=false;
-if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
-    alert("mobile user !")
-    //img.style.display="none"
+    var user="other"
+
+///////////////////////////------------- orientation -------------////////////////////////////////
+
+var cntr=0;
+var vrb=true;
+function orientation(){
+    cntr+=1
+    if(cntr==1){
+        alert("mobile user !")
+    }
     document.body.style.flexDirection="column"
     box[0].style.marginTop="80px"
-    class Orientation{
-        constructor(){
-            addEventListener("load",()=>{
-                this.orientation();
-            });
-            addEventListener("orientationchange",()=>{
-                this.orientation();
-            });
-        }
 
-        orientation(){
-            if(screen.orientation.type =="portrait-primary" || screen.orientation.type =="portrait-secondary"  ){
-                orientLL=false;
+    if( window.screen.width<window.screen.height  && vrb  ){//portrait       
+        alert("------------ portrait -------------");
+        vrb=false
+        orientLL=false;
                 if( window.screen.width<600 ){
                     for(var i=0;i<box.length;i++){
                         box[i].style.width=`${window.screen.width*0.9}px`
                         box[i].style.height=`${window.screen.width*0.9}px`
                     }
                     GX.style.width="80%"
-                    alert("data : ");
-                    alert("gx's width is : "+GX.clientWidth+" px");
-                    alert("box's width is : "+box[0].clientWidth+" px");
-                    alert("box's width is : "+window.screen.width*0.9+" px");
+                    if(cntr==1){
+                        alert("data : ");
+                        alert("gx's width is : "+GX.clientWidth+" px");
+                        alert("box's width is : "+box[0].clientWidth+" px");
+                        alert("box's width is : "+window.screen.width*0.9+" px");
+                    }
                     a.style.fontSize="0.75em"
                     a1.style.fontSize="0.75em"
                     a2.style.fontSize="0.75em"
@@ -412,8 +416,10 @@ if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phon
                     a2.style.fontSize="1.5em"
                     a3.style.fontSize="1.5em"
                 } 
-            }else if(screen.orientation.type =="landscape-primary" ||  screen.orientation.type =="landscape-landscape-secondary" ){
-                orientLL=true;
+    }else if( window.screen.width>=window.screen.height  && vrb==false  ){//landscape  
+        alert("+++++++++++++ landscape +++++++++++++++");
+        vrb=true
+        orientLL=true;
                 if( window.screen.height<600 ){
                     for(var i=0;i<box.length;i++){
                         box[i].style.width=`${window.screen.height*0.8}px`
@@ -440,11 +446,18 @@ if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phon
                     a3.style.fontSize="1.5em"
                     
                 } 
-            }
-        }
     }
-    onload = new Orientation();
-}else{ //computer
+}
+function loop(){
+    
+    orientation();
+
+    requestAnimationFrame(loop);
+}
+if(user==="other" || user==="phone"){// iphone and phones 
+    loop();
+}else{//computer
+    user="computer";
     for(var i=0;i<box.length;i++){
         box[i].style.width=`${windowWidth/4}px`
         box[i].style.height=`${windowWidth/4}px`
