@@ -55,7 +55,7 @@ var dmbr=12.1;//++++++++++++++++++++++++12.1
 var BALLSPEED=7; //6//9//-++- 16//88//--82+++++++++++++++++++++++++++
 var gadget="pc"
 var user="computer"
-if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
+if ( /android|webOS|iPhone|iPad|iPod|iOS|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
         user="phone"
         if(window.screen.width>280){
             BALL_RADIUS=6.7;//+++++++++++++++++++++++++++++++6.7
