@@ -101,8 +101,13 @@
             z-index:1;
         }
         .content{
+            width:93%;
+            height:93%;
             position: absolute;
-            inset:4%;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            
             border:4px solid #070a1c;
             z-index: 3;
             border-radius: 50%;
@@ -361,6 +366,7 @@
     var  windowWidth=window.screen.width ;//* window.devicePixelRatio ;
     var  windowHeight=window.screen.height ;//* window.devicePixelRatio ;
     var box=document.querySelectorAll(".box");
+    var cont=document.querySelectorAll(".content");
     var GX=document.getElementById("GX");
     var a=document.getElementById("a");
     var a1=document.getElementById("a1");
@@ -368,6 +374,7 @@
     var a3=document.getElementById("a3");
     var orientLL=false;
     var user="other"
+    alert("content w and h :"+cont[0].clientWidth+"px |X| "+cont[0].clientHeight+"px");
 
 ///////////////////////////------------- orientation -------------////////////////////////////////
     
