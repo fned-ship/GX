@@ -68,144 +68,144 @@ if(window.screen.width>280){
 
 if ( /android|webOS|iPhone|iPad|iPod|blackberry|IEMobile|Opera Mini|Windows Phone/i.test(navigator.userAgent) ){//phone and ipad
         user="phone"
-        // if(window.screen.width>280){
-        //     BALL_RADIUS=6.7;//+++++++++++++++++++++++++++++++6.7
-        //     dmbr=12.1;//++++++++++++++++++++++++12.1
-        // }else{
-        //     BALL_RADIUS=6;//+++++++++++++++++++++++++++++++6.7
-        //     dmbr=11.6;//++++++++++++++++++++++++12.1
-        // }
-        // class Orientation{
-        //     constructor(){
-        //         addEventListener("load",()=>{
-        //             this.orientation();
-        //         });
-        //         addEventListener("orientationchange",()=>{
-        //             this.orientation();
-        //         });
-        //     }
+        if(window.screen.width>280){
+            BALL_RADIUS=6.7;//+++++++++++++++++++++++++++++++6.7
+            dmbr=12.1;//++++++++++++++++++++++++12.1
+        }else{
+            BALL_RADIUS=6;//+++++++++++++++++++++++++++++++6.7
+            dmbr=11.6;//++++++++++++++++++++++++12.1
+        }
+        class Orientation{
+            constructor(){
+                addEventListener("load",()=>{
+                    this.orientation();
+                });
+                addEventListener("orientationchange",()=>{
+                    this.orientation();
+                });
+            }
 
-        //     orientation(){
-        //         cctr+=1
-        //         if(screen.orientation.type =="portrait-primary" || screen.orientation.type =="portrait-secondary"  ){
-        //             //Pause=false;
-        //             if(cctr==2){
-        //                 windowWidth=window.screen.width ;//* window.devicePixelRatio ;
-        //                 windowHeight=window.screen.height ;
-        //             }
-        //             if(cctr<=2){
-        //                 Pause=false;
-        //             }
+            orientation(){
+                cctr+=1
+                if(screen.orientation.type =="portrait-primary" || screen.orientation.type =="portrait-secondary"  ){
+                    //Pause=false;
+                    if(cctr==2){
+                        windowWidth=window.screen.width ;//* window.devicePixelRatio ;
+                        windowHeight=window.screen.height ;
+                    }
+                    if(cctr<=2){
+                        Pause=false;
+                    }
                     
-        //             orientLL=false;
-        //             orientL=false;
-        //             if(cctr>=2){
-        //                 if(orientLLL==false){
-        //                     pause1.setAttribute("src","play4.png");
-        //                 }else{
-        //                     if(cctr>2){
-        //                         pause1.setAttribute("src","play4.png");
-        //                     }
-        //                 }
-        //                 cvs.style.visibility = "visible";
-        //                 sound.style.visibility = "visible";
-        //                 gameover1.style.visibility = "visible";
-        //             }
+                    orientLL=false;
+                    orientL=false;
+                    if(cctr>=2){
+                        if(orientLLL==false){
+                            pause1.setAttribute("src","play4.png");
+                        }else{
+                            if(cctr>2){
+                                pause1.setAttribute("src","play4.png");
+                            }
+                        }
+                        cvs.style.visibility = "visible";
+                        sound.style.visibility = "visible";
+                        gameover1.style.visibility = "visible";
+                    }
 
-        //             if( windowWidth<600 ){
-        //                 cvs.width=`${windowWidth}`;
-        //                 cvs.height=`${windowHeight}`;
-        //                 cvs.style.position="absolute"
-        //                 cvs.style.top= "0px"
-        //                 cvs.style.left = "50%"
-        //                 cvs.style.transform="translate(-50%,0px)"
+                    if( windowWidth<600 ){
+                        cvs.width=`${windowWidth}`;
+                        cvs.height=`${windowHeight}`;
+                        cvs.style.position="absolute"
+                        cvs.style.top= "0px"
+                        cvs.style.left = "50%"
+                        cvs.style.transform="translate(-50%,0px)"
 
-        //                 gameover1.style.position="absolute"
-        //                 gameover1.style.top= "0px"
-        //                 gameover1.style.left = "50%"
-        //                 gameover1.style.transform="translate(-50%,0px)"
+                        gameover1.style.position="absolute"
+                        gameover1.style.top= "0px"
+                        gameover1.style.left = "50%"
+                        gameover1.style.transform="translate(-50%,0px)"
 
-        //                 sound.style.position="absolute"
-        //                 sound.style.top= "0px"
-        //                 sound.style.left = "50%"
-        //                 sound.style.transform="translate(-50%,0px)"
-        //                 gadget="phone"
-        //                 BALLSPEED=5;
-        //             }else{
-        //                 BALLSPEED=7;
-        //                 gadget="tablet"
-        //                 if(windowHeight>512){
-        //                     cvs.width=`${windowWidth * 1}`;//0.35//0.9//++0.75
-        //                     cvs.height=`${windowHeight * 0.5}`;//0.75//0.8//++0.6
-        //                     cvs.style.position="absolute"
-        //                     cvs.style.top= "50%"
-        //                     cvs.style.left = "50%"
-        //                     cvs.style.transform="translate(-50%,-50%)"
+                        sound.style.position="absolute"
+                        sound.style.top= "0px"
+                        sound.style.left = "50%"
+                        sound.style.transform="translate(-50%,0px)"
+                        gadget="phone"
+                        BALLSPEED=5;
+                    }else{
+                        BALLSPEED=7;
+                        gadget="tablet"
+                        if(windowHeight>512){
+                            cvs.width=`${windowWidth * 1}`;//0.35//0.9//++0.75
+                            cvs.height=`${windowHeight * 0.5}`;//0.75//0.8//++0.6
+                            cvs.style.position="absolute"
+                            cvs.style.top= "50%"
+                            cvs.style.left = "50%"
+                            cvs.style.transform="translate(-50%,-50%)"
 
-        //                     gameover1.style.position="absolute"
-        //                     gameover1.style.top= "50%"
-        //                     gameover1.style.left = "50%"
-        //                     gameover1.style.transform="translate(-50%,-50%)"
+                            gameover1.style.position="absolute"
+                            gameover1.style.top= "50%"
+                            gameover1.style.left = "50%"
+                            gameover1.style.transform="translate(-50%,-50%)"
 
-        //                     sound.style.position="absolute"
-        //                     sound.style.top= "50%"
-        //                     sound.style.left = "50%"
-        //                     sound.style.transform="translate(-50%,-50%)"
+                            sound.style.position="absolute"
+                            sound.style.top= "50%"
+                            sound.style.left = "50%"
+                            sound.style.transform="translate(-50%,-50%)"
 
-        //                     GX.style.display="flex"
-        //                 }else{
-        //                     cvs.width=`${windowWidth}`;
-        //                     cvs.height=`${windowHeight}`;
-        //                     cvs.style.position="absolute"
-        //                     cvs.style.top= "0px"
-        //                     cvs.style.left = "50%"
-        //                     cvs.style.transform="translate(-50%,0px)"
+                            GX.style.display="flex"
+                        }else{
+                            cvs.width=`${windowWidth}`;
+                            cvs.height=`${windowHeight}`;
+                            cvs.style.position="absolute"
+                            cvs.style.top= "0px"
+                            cvs.style.left = "50%"
+                            cvs.style.transform="translate(-50%,0px)"
 
-        //                     gameover1.style.position="absolute"
-        //                     gameover1.style.top= "0px"
-        //                     gameover1.style.left = "50%"
-        //                     gameover1.style.transform="translate(-50%,0px)"
+                            gameover1.style.position="absolute"
+                            gameover1.style.top= "0px"
+                            gameover1.style.left = "50%"
+                            gameover1.style.transform="translate(-50%,0px)"
 
-        //                     sound.style.position="absolute"
-        //                     sound.style.top= "0px"
-        //                     sound.style.left = "50%"
-        //                     sound.style.transform="translate(-50%,0px)"
-        //                 }
-        //             } 
+                            sound.style.position="absolute"
+                            sound.style.top= "0px"
+                            sound.style.left = "50%"
+                            sound.style.transform="translate(-50%,0px)"
+                        }
+                    } 
 
-        //             // enter.style.width="100px"
-        //             // enter.style.position="absolute"
-        //             // enter.style.top= "50%"
-        //             // enter.style.left = "50%"
-        //             // enter.style.transform="translate(-50%,-50%)"
+                    // enter.style.width="100px"
+                    // enter.style.position="absolute"
+                    // enter.style.top= "50%"
+                    // enter.style.left = "50%"
+                    // enter.style.transform="translate(-50%,-50%)"
 
-        //             whiteBoard.style.display="none"
-        //             rotate.style.display="none"
+                    whiteBoard.style.display="none"
+                    rotate.style.display="none"
 
-        //         }else if(screen.orientation.type =="landscape-primary" ||  screen.orientation.type =="landscape-landscape-secondary" ){
-        //             Pause=true;
-        //             orientLL=true
-        //             if(cctr==1){
-        //                 orientL=true;
-        //                 orientLLL=true;
-        //             }
-        //             if(cctr>=1){
-        //                 cvs.style.visibility = "hidden";
-        //                 sound.style.visibility = "hidden";
-        //                 gameover1.style.visibility = "hidden";
-        //             }
-        //             whiteBoard.style.display="block"
-        //             GX.style.display="none"
-        //             rotate.style.display="block"
-        //             rotate.style.width="100px"
-        //             rotate.style.position="absolute"
-        //             rotate.style.top= "50%"
-        //             rotate.style.left = "50%"
-        //             rotate.style.transform="translate(-50%,-50%)"
-        //         };
-        //     }
-        // }
-        // onload = new Orientation();
+                }else if(screen.orientation.type =="landscape-primary" ||  screen.orientation.type =="landscape-landscape-secondary" ){
+                    Pause=true;
+                    orientLL=true
+                    if(cctr==1){
+                        orientL=true;
+                        orientLLL=true;
+                    }
+                    if(cctr>=1){
+                        cvs.style.visibility = "hidden";
+                        sound.style.visibility = "hidden";
+                        gameover1.style.visibility = "hidden";
+                    }
+                    whiteBoard.style.display="block"
+                    GX.style.display="none"
+                    rotate.style.display="block"
+                    rotate.style.width="100px"
+                    rotate.style.position="absolute"
+                    rotate.style.top= "50%"
+                    rotate.style.left = "50%"
+                    rotate.style.transform="translate(-50%,-50%)"
+                };
+            }
+        }
+        onload = new Orientation();
 }else{ //computer
     user="computer"
     cvs.width=`${windowWidth * 0.35}`;//0.35//0.9
@@ -382,7 +382,7 @@ function loopOrientation(){
 
     requestAnimationFrame(loopOrientation);
 }
-if(user==="other" || user==="phone" ){// iphone and phones 
+if(user==="other"){// iphone and phones 
     loopOrientation();
 }
 
